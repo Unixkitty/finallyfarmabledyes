@@ -1,13 +1,16 @@
 package com.unixkitty.finallyfarmabledyes.block;
 
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
-import com.unixkitty.gemspork.lib.HelperUtil;
-import net.minecraft.block.*;
+import net.minecraft.block.BeetrootBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.LazyValue;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,7 +26,7 @@ public class BlockDyeCrop extends BeetrootBlock
 
         this.color = color;
         this.seeds = new LazyValue<>(() ->
-                ForgeRegistries.ITEMS.getValue(HelperUtil.prefixResource(FinallyFarmableDyes.MODID, color.toString()))
+                ForgeRegistries.ITEMS.getValue(new ResourceLocation(FinallyFarmableDyes.MODID, color.toString()))
         );
     }
 
