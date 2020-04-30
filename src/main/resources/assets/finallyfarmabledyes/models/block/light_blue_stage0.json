@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "finallyfarmabledyes:block/light_blue_stage0"
+  }
+}

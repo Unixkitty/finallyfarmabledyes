@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "finallyfarmabledyes:block/magenta_stage1"
+  }
+}

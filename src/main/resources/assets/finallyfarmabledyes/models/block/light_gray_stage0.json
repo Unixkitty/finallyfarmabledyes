@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "finallyfarmabledyes:block/light_gray_stage0"
+  }
+}
