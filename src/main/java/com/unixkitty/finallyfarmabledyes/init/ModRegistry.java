@@ -20,7 +20,7 @@ public final class ModRegistry
     {
         // BlockItem seeds for all blocks
         ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block ->
-                event.getRegistry().register(new BlockNamedItem(block, (new Item.Properties()).group(ItemGroup.MATERIALS)).setRegistryName(Objects.requireNonNull(block.getRegistryName())))
+                event.getRegistry().register(new BlockNamedItem(block, new Item.Properties().group(ItemGroup.MATERIALS)).setRegistryName(Objects.requireNonNull(block.getRegistryName())))
         );
     }
 }
