@@ -3,11 +3,7 @@ package com.unixkitty.finallyfarmabledyes.init;
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
 import com.unixkitty.finallyfarmabledyes.block.BlockDyeCrop;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.DyeColor;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @SuppressWarnings("unused")
 public final class ModBlocks
 {
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, FinallyFarmableDyes.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FinallyFarmableDyes.MODID);
 
     /*
             WHITE           Lily of the Valley
