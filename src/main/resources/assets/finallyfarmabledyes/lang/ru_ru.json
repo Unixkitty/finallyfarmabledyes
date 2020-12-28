@@ -1,0 +1,21 @@
+{
+  "item.finallyfarmabledyes.white": "Семена ландыша",
+  "item.finallyfarmabledyes.orange": "Семена оранжевого тюльпана",
+  "item.finallyfarmabledyes.magenta": "Семена лук-батуна",
+  "item.finallyfarmabledyes.light_blue": "Семена синей орхидеи",
+  "item.finallyfarmabledyes.yellow": "Семена одуванчика",
+  "item.finallyfarmabledyes.pink": "Семена розового тюльпана",
+  "item.finallyfarmabledyes.light_gray": "Семена белого тюльпана",
+  "item.finallyfarmabledyes.blue": "Семена синего василька",
+  "item.finallyfarmabledyes.black": "Семена розы визера",
+
+  "block.finallyfarmabledyes.white": "Ландыш",
+  "block.finallyfarmabledyes.orange": "Оранжевый тюльпан",
+  "block.finallyfarmabledyes.magenta": "Лук-батун",
+  "block.finallyfarmabledyes.light_blue": "Синяя орхидея",
+  "block.finallyfarmabledyes.yellow": "Одуванчик",
+  "block.finallyfarmabledyes.pink": "Розовый тюльпан",
+  "block.finallyfarmabledyes.light_gray": "Белый тюльпан",
+  "block.finallyfarmabledyes.blue": "Синий василёк",
+  "block.finallyfarmabledyes.black": "Роза визера"
+}
