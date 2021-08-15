@@ -24,31 +24,31 @@ public class CraftingTableRecipes extends CraftingTableRecipeProvider
     }
 
     @Override
-    protected void registerRecipes(Consumer<IFinishedRecipe> consumer)
+    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer)
     {
         for (Block block : ForgeRegistries.BLOCKS)
         {
             if (FinallyFarmableDyes.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace()))
             {
                 BlockDyeCrop crop = (BlockDyeCrop) block;
-                IItemProvider seed = crop.getSeedsItem();
+                IItemProvider seed = crop.getBaseSeedId();
                 IItemProvider flower = crop.getFlowerItem();
 
-                ShapelessRecipeBuilder.shapelessRecipe(seed, 2)
-                        .addIngredient(flower)
-                        .addIngredient(flower)
-                        .addCriterion("has_item", hasItem(flower))
-                        .build(consumer);
+                ShapelessRecipeBuilder.shapeless(seed, 2)
+                        .requires(flower)
+                        .requires(flower)
+                        .unlockedBy("has_item", has(flower))
+                        .save(consumer);
             }
         }
 
-        ShapedRecipeBuilder.shapedRecipe(Items.WITHER_ROSE, 8)
-                .key('r', Items.POPPY)
-                .key('s', Items.WITHER_SKELETON_SKULL)
-                .patternLine("rrr")
-                .patternLine("rsr")
-                .patternLine("rrr")
-                .addCriterion("has_item", hasItem(Items.WITHER_SKELETON_SKULL))
-                .build(consumer, HelperUtil.prefixResource(FinallyFarmableDyes.MODID, "wither_rose"));
+        ShapedRecipeBuilder.shaped(Items.WITHER_ROSE, 8)
+                .define('r', Items.POPPY)
+                .define('s', Items.WITHER_SKELETON_SKULL)
+                .pattern("rrr")
+                .pattern("rsr")
+                .pattern("rrr")
+                .unlockedBy("has_item", has(Items.WITHER_SKELETON_SKULL))
+                .save(consumer, HelperUtil.prefixResource(FinallyFarmableDyes.MODID, "wither_rose"));
     }
 }

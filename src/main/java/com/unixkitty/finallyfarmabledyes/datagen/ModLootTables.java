@@ -43,28 +43,28 @@ public class ModLootTables extends BlockLootProvider
     {
         return droppingAndBonusWhen(
                 block.getFlowerItem(),
-                block.getSeedsItem(),
-                BlockStateProperty.builder(block).fromProperties(
-                        StatePropertiesPredicate.Builder.newBuilder().withIntProp(BeetrootBlock.BEETROOT_AGE, 3)
+                block.getBaseSeedId(),
+                BlockStateProperty.hasBlockStateProperties(block).setProperties(
+                        StatePropertiesPredicate.Builder.properties().hasProperty(BeetrootBlock.AGE, 3)
                 ));
     }
 
     protected static LootTable.Builder droppingAndBonusWhen(IItemProvider crop, IItemProvider seed, ILootCondition.IBuilder condition)
     {
         return withExplosionDecay(
-                LootTable.builder().addLootPool(
-                        LootPool.builder().addEntry(
-                                ItemLootEntry.builder(crop).acceptCondition(condition).alternatively(
-                                        ItemLootEntry.builder(seed)
-                                ))).addLootPool(
-                                        LootPool.builder().acceptCondition(condition).addEntry(
-                                                ItemLootEntry.builder(crop).acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.5714286F, 3))))
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool().add(
+                                ItemLootEntry.lootTableItem(crop).when(condition).otherwise(
+                                        ItemLootEntry.lootTableItem(seed)
+                                ))).withPool(
+                                        LootPool.lootPool().when(condition).add(
+                                                ItemLootEntry.lootTableItem(crop).apply(ApplyBonus.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3))))
         );
     }
 
     protected static <T> T withExplosionDecay(ILootFunctionConsumer<T> loot)
     {
-        return loot.acceptFunction(ExplosionDecay.builder());
+        return loot.apply(ExplosionDecay.explosionDecay());
     }
 
     @Override

@@ -31,7 +31,7 @@ public final class ClientEvents
         {
             if (FinallyFarmableDyes.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace()))
             {
-                RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(block, RenderType.cutout());
             }
         }
     }

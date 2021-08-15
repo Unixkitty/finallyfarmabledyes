@@ -22,7 +22,7 @@ public class BlockDyeCrop extends BeetrootBlock
 
     public BlockDyeCrop(DyeColor color)
     {
-        super(Block.Properties.from(Blocks.BEETROOTS));
+        super(Block.Properties.copy(Blocks.BEETROOTS));
 
         this.color = color;
         this.seeds = new LazyValue<>(() ->
@@ -37,14 +37,14 @@ public class BlockDyeCrop extends BeetrootBlock
 
     //Seed
     @Override
-    public IItemProvider getSeedsItem()
+    public IItemProvider getBaseSeedId()
     {
-        return seeds.getValue();
+        return seeds.get();
     }
 
     //Not seed?
     @Override
-    public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state)
+    public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state)
     {
         return new ItemStack(getFlowerItem());
     }
