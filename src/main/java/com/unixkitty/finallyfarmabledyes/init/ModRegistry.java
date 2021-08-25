@@ -1,13 +1,13 @@
 package com.unixkitty.finallyfarmabledyes.init;
 
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fmllegacy.RegistryObject;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ public final class ModRegistry
     {
         // BlockItem seeds for all blocks
         ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block ->
-                event.getRegistry().register(new BlockNamedItem(block, new Item.Properties().tab(ItemGroup.TAB_MATERIALS)).setRegistryName(Objects.requireNonNull(block.getRegistryName())))
+                event.getRegistry().register(new ItemNameBlockItem(block, new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)).setRegistryName(Objects.requireNonNull(block.getRegistryName())))
         );
     }
 }

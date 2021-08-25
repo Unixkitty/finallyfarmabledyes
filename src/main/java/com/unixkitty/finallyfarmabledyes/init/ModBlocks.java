@@ -2,9 +2,9 @@ package com.unixkitty.finallyfarmabledyes.init;
 
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
 import com.unixkitty.finallyfarmabledyes.block.BlockDyeCrop;
-import net.minecraft.block.Block;
-import net.minecraft.item.DyeColor;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 

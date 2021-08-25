@@ -1,32 +1,35 @@
 package com.unixkitty.finallyfarmabledyes.block;
 
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
-import net.minecraft.block.BeetrootBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.DyeColor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.LazyValue;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.BeetrootBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.util.NonNullLazy;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Objects;
 
 public class BlockDyeCrop extends BeetrootBlock
 {
     private final DyeColor color;
-    private final LazyValue<IItemProvider> seeds;
+    //    private final LazyLoadedValue<ItemLike> seeds;
+    private final NonNullLazy<ItemLike> seeds;
 
     public BlockDyeCrop(DyeColor color)
     {
         super(Block.Properties.copy(Blocks.BEETROOTS));
 
         this.color = color;
-        this.seeds = new LazyValue<>(() ->
-                ForgeRegistries.ITEMS.getValue(new ResourceLocation(FinallyFarmableDyes.MODID, color.toString()))
+        this.seeds = NonNullLazy.of(() ->
+                Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(FinallyFarmableDyes.MODID, color.toString())))
         );
     }
 
@@ -37,42 +40,33 @@ public class BlockDyeCrop extends BeetrootBlock
 
     //Seed
     @Override
-    public IItemProvider getBaseSeedId()
+    public ItemLike getBaseSeedId()
     {
         return seeds.get();
     }
 
     //Not seed?
     @Override
-    public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state)
+    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos pos, BlockState state)
     {
         return new ItemStack(getFlowerItem());
     }
 
-    public IItemProvider getFlowerItem()
+
+    public ItemLike getFlowerItem()
     {
-        switch (this.color)
-        {
-            case WHITE:
-                return Items.LILY_OF_THE_VALLEY;
-            case ORANGE:
-                return Items.ORANGE_TULIP;
-            case MAGENTA:
-                return Items.ALLIUM;
-            case LIGHT_BLUE:
-                return Items.BLUE_ORCHID;
-            case YELLOW:
-                return Items.DANDELION;
-            case PINK:
-                return Items.PINK_TULIP;
-            case LIGHT_GRAY:
-                return Items.WHITE_TULIP;
-            case BLUE:
-                return Items.CORNFLOWER;
-            case BLACK:
-                return Items.WITHER_ROSE;
-            default:
-                return Items.BEEF;
-        }
+        return switch (this.color)
+                {
+                    case WHITE -> Items.LILY_OF_THE_VALLEY;
+                    case ORANGE -> Items.ORANGE_TULIP;
+                    case MAGENTA -> Items.ALLIUM;
+                    case LIGHT_BLUE -> Items.BLUE_ORCHID;
+                    case YELLOW -> Items.DANDELION;
+                    case PINK -> Items.PINK_TULIP;
+                    case LIGHT_GRAY -> Items.WHITE_TULIP;
+                    case BLUE -> Items.CORNFLOWER;
+                    case BLACK -> Items.WITHER_ROSE;
+                    default -> Items.BEEF;
+                };
     }
 }

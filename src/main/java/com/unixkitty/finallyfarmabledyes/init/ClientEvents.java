@@ -1,9 +1,9 @@
 package com.unixkitty.finallyfarmabledyes.init;
 
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
-import net.minecraft.block.Block;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,7 +31,7 @@ public final class ClientEvents
         {
             if (FinallyFarmableDyes.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace()))
             {
-                RenderTypeLookup.setRenderLayer(block, RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(block, RenderType.cutout());
             }
         }
     }
