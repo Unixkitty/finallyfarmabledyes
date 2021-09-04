@@ -1,4 +1,4 @@
-[![](http://cf.way2muchnoise.eu/title/379957.svg)](https://www.curseforge.com/minecraft/mc-mods/finally-farmable-dyes)
+[![](http://cf.way2muchnoise.eu/title/379957.svg)](https://www.curseforge.com/minecraft/mc-mods/finally-farmable-dyes) [![](http://cf.way2muchnoise.eu/versions/379957.svg)](https://www.curseforge.com/minecraft/mc-mods/finally-farmable-dyes)
 
 # Finally Farmable Dyes
 
