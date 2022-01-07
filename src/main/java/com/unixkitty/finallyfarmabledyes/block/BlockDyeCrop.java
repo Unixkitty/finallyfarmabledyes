@@ -7,7 +7,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.LazyValue;
 import net.minecraft.util.ResourceLocation;
@@ -17,23 +16,18 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockDyeCrop extends BeetrootBlock
 {
-    private final DyeColor color;
+    private final IItemProvider flowerItem;
     private final LazyValue<IItemProvider> seeds;
 
-    public BlockDyeCrop(DyeColor color)
+    public BlockDyeCrop(IItemProvider flowerItem, DyeColor color)
     {
         super(Block.Properties.copy(Blocks.BEETROOTS));
 
-        this.color = color;
+        this.flowerItem = flowerItem;
         this.seeds = new LazyValue<>(() ->
                 ForgeRegistries.ITEMS.getValue(new ResourceLocation(FinallyFarmableDyes.MODID, color.toString()))
         );
     }
-
-/*    public DyeColor getColor()
-    {
-        return this.color;
-    }*/
 
     //Seed
     @Override
@@ -49,7 +43,7 @@ public class BlockDyeCrop extends BeetrootBlock
         return new ItemStack(getFlowerItem());
     }
 
-    public IItemProvider getFlowerItem()
+    /*public IItemProvider getFlowerItem()
     {
         switch (this.color)
         {
@@ -69,10 +63,17 @@ public class BlockDyeCrop extends BeetrootBlock
                 return Items.WHITE_TULIP;
             case BLUE:
                 return Items.CORNFLOWER;
+            case RED:
+                return Items.POPPY;
             case BLACK:
                 return Items.WITHER_ROSE;
             default:
                 return Items.BEEF;
         }
+    }*/
+
+    public IItemProvider getFlowerItem()
+    {
+        return this.flowerItem;
     }
 }

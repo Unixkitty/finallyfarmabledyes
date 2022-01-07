@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "finallyfarmabledyes:block/red_stage0"
+  }
+}

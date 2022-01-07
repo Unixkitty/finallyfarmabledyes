@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "age=0": { "model": "finallyfarmabledyes:block/azure_bluet_stage0" },
+    "age=1": { "model": "finallyfarmabledyes:block/azure_bluet_stage1" },
+    "age=2": { "model": "finallyfarmabledyes:block/azure_bluet_stage2" },
+    "age=3": { "model": "finallyfarmabledyes:block/azure_bluet_stage3" }
+  }
+}
