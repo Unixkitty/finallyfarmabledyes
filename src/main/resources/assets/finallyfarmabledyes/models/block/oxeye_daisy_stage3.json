@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "finallyfarmabledyes:block/oxeye_daisy_stage3"
+  }
+}

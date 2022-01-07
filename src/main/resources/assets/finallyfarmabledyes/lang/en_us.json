@@ -7,7 +7,12 @@
   "item.finallyfarmabledyes.pink": "Pink Tulip Seeds",
   "item.finallyfarmabledyes.light_gray": "White Tulip Seeds",
   "item.finallyfarmabledyes.blue": "Cornflower Seeds",
+  "item.finallyfarmabledyes.red": "Poppy Seeds",
   "item.finallyfarmabledyes.black": "Wither Rose Seeds",
+
+  "item.finallyfarmabledyes.red_tulip": "Red Tulip Seeds",
+  "item.finallyfarmabledyes.azure_bluet": "Azure Bluet Seeds",
+  "item.finallyfarmabledyes.oxeye_daisy": "Oxeye Daisy Seeds",
 
   "block.finallyfarmabledyes.white": "Lily of the Valley",
   "block.finallyfarmabledyes.orange": "Orange Tulip",
@@ -17,5 +22,10 @@
   "block.finallyfarmabledyes.pink": "Pink Tulip",
   "block.finallyfarmabledyes.light_gray": "White Tulip",
   "block.finallyfarmabledyes.blue": "Cornflower",
-  "block.finallyfarmabledyes.black": "Wither Rose"
+  "block.finallyfarmabledyes.red": "Poppy",
+  "block.finallyfarmabledyes.black": "Wither Rose",
+
+  "block.finallyfarmabledyes.red_tulip": "Red Tulip",
+  "block.finallyfarmabledyes.azure_bluet": "Azure Bluet",
+  "block.finallyfarmabledyes.oxeye_daisy": "Oxeye Daisy"
 }

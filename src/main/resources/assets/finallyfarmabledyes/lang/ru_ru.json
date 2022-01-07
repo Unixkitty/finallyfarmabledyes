@@ -7,7 +7,12 @@
   "item.finallyfarmabledyes.pink": "Семена розового тюльпана",
   "item.finallyfarmabledyes.light_gray": "Семена белого тюльпана",
   "item.finallyfarmabledyes.blue": "Семена синего василька",
-  "item.finallyfarmabledyes.black": "Семена розы визера",
+  "item.finallyfarmabledyes.red": "Семена мака",
+  "item.finallyfarmabledyes.black": "Семена розы иссушения",
+
+  "item.finallyfarmabledyes.red_tulip": "Семена красного тюльпана",
+  "item.finallyfarmabledyes.azure_bluet": "Семена серой хаустонии",
+  "item.finallyfarmabledyes.oxeye_daisy": "Семена нивяника",
 
   "block.finallyfarmabledyes.white": "Ландыш",
   "block.finallyfarmabledyes.orange": "Оранжевый тюльпан",
@@ -17,5 +22,10 @@
   "block.finallyfarmabledyes.pink": "Розовый тюльпан",
   "block.finallyfarmabledyes.light_gray": "Белый тюльпан",
   "block.finallyfarmabledyes.blue": "Синий василёк",
-  "block.finallyfarmabledyes.black": "Роза визера"
+  "block.finallyfarmabledyes.red": "Мак",
+  "block.finallyfarmabledyes.black": "Роза иссушения",
+
+  "block.finallyfarmabledyes.red_tulip": "Красный тюльпан",
+  "block.finallyfarmabledyes.azure_bluet": "Хаустония серая",
+  "block.finallyfarmabledyes.oxeye_daisy": "Нивяник"
 }
