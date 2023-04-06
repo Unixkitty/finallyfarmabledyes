@@ -1,5 +1,6 @@
 {
   "parent": "block/crop",
+  "render_type": "cutout",
   "textures": {
     "crop": "finallyfarmabledyes:block/oxeye_daisy_stage0"
   }

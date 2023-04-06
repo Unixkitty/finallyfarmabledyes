@@ -1,5 +1,6 @@
 {
   "parent": "block/crop",
+  "render_type": "cutout",
   "textures": {
     "crop": "finallyfarmabledyes:block/azure_bluet_stage3"
   }
