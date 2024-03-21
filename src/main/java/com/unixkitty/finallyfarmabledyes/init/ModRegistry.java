@@ -2,7 +2,10 @@ package com.unixkitty.finallyfarmabledyes.init;
 
 import com.unixkitty.finallyfarmabledyes.FinallyFarmableDyes;
 import com.unixkitty.finallyfarmabledyes.block.BlockDyeCrop;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
@@ -58,7 +61,7 @@ public final class ModRegistry
     {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new BlockDyeCrop(flowerItem, color));
 
-        ITEMS.register(name, () -> new ItemNameBlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+        ITEMS.register(name, () -> new ItemNameBlockItem(block.get(), new Item.Properties()));
 
         return block;
     }

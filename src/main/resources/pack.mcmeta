@@ -1,7 +1,6 @@
 {
-    "pack": {
-        "description": "finallyfarmabledyes resources",
-        "pack_format": 7,
-        "_comment": ""
-    }
+  "pack": {
+    "description": "finallyfarmabledyes resources",
+    "pack_format": 15
+  }
 }
