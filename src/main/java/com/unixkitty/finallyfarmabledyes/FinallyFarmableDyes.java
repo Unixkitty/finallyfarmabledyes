@@ -6,7 +6,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -35,25 +34,23 @@ public class FinallyFarmableDyes
         ModRegistry.BLOCKS.register(modEventBus);
         ModRegistry.ITEMS.register(modEventBus);
 
-        MinecraftForge.EVENT_BUS.addListener(FinallyFarmableDyes::commonSetup);
+        modEventBus.addListener(this::commonSetup);
     }
 
-    public static void commonSetup(final FMLCommonSetupEvent event)
+    private void commonSetup(final FMLCommonSetupEvent event)
     {
-        final List<ItemStack> chickenFoodList = new ArrayList<>(Arrays.stream(Chicken.FOOD_ITEMS.getItems()).toList());
-
-        ModRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(item ->
+        event.enqueueWork(() ->
         {
-            ComposterBlock.COMPOSTABLES.putIfAbsent(item, ComposterBlock.COMPOSTABLES.getOrDefault(Items.WHEAT_SEEDS, 0.3f));
+            final List<ItemStack> chickenFoodList = new ArrayList<>(Arrays.stream(Chicken.FOOD_ITEMS.getItems()).toList());
 
-            chickenFoodList.add(new ItemStack(item));
+            ModRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(item ->
+            {
+                ComposterBlock.COMPOSTABLES.putIfAbsent(item, ComposterBlock.COMPOSTABLES.getOrDefault(Items.WHEAT_SEEDS, 0.3f));
+
+                chickenFoodList.add(new ItemStack(item));
+            });
+
+            Chicken.FOOD_ITEMS = Ingredient.of(chickenFoodList.stream());
         });
-
-        Chicken.FOOD_ITEMS = Ingredient.of(chickenFoodList.stream());
-    }
-
-    public static Logger log()
-    {
-        return LOG;
     }
 }
